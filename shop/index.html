@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda Completa — Total Black</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+  /* Optional specific overrides for the shop page */
+  .productos {
+    padding-top: 10rem; /* Space for the navbar */
+    min-height: calc(100vh - 100px); /* Fill screen minus footer approx */
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo" style="text-decoration:none;">TOTAL <span>BLACK</span></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/#categorias">Categorías</a></li>
+      <li><a href="/#contacto">Contacto</a></li>
+    </ul>
+    <a href="/shop/" class="nav-wpp">Tienda</a>
+  </div>
+</nav>
+
+<!-- PRODUCTOS (TIENDA COMPLETA) -->
+<section class="productos" id="productos">
+  <div class="shop-layout">
+    
+    <aside class="shop-sidebar">
+      <div class="shop-search-box">
+        <input type="search" id="searchInput" placeholder="Buscar productos...">
+        <div class="search-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </div>
+      </div>
+
+      <!-- Filtros Desktop -->
+      <div class="desktop-filters">
+        <h3 class="filter-title">Categorías</h3>
+        <ul class="filter-list">
+          <li><button class="filter-btn active" data-filter="todos" onclick="filterProducts('todos')">Todos</button></li>
+          <li><button class="filter-btn" data-filter="auto" onclick="filterProducts('auto')">Autos</button></li>
+          <li><button class="filter-btn" data-filter="electro" onclick="filterProducts('electro')">Electrónica</button></li>
+          <li><button class="filter-btn" data-filter="moto" onclick="filterProducts('moto')">Motos</button></li>
+        </ul>
+      </div>
+
+      <!-- Filtros Mobile -->
+      <div class="mobile-filters">
+        <select id="mobileFilter" class="filter-select" onchange="filterProducts(this.value)">
+          <option value="todos">Todas las categorías</option>
+          <option value="auto">Autos</option>
+          <option value="electro">Electrónica</option>
+          <option value="moto">Motos</option>
+        </select>
+      </div>
+    </aside>
+
+    <main class="shop-content">
+      <div class="section-header" style="margin-bottom: 2rem;">
+        <span class="section-tag">Catálogo Completo</span>
+        <h2 class="section-title" style="margin-bottom: 0;">Nuestra Tienda</h2>
+      </div>
+
+      <div class="prod-grid" id="prodGrid">
+
+    <div class="prod-card fade-up visible" data-cat="auto">
+      <div class="prod-img">
+        🪑
+        <span class="prod-badge">Nuevo</span>
+        <a href="https://wa.me/5493874158298?text=Hola!%20Quiero%20consultar%20por%20las%20Fundas%20de%20Asiento%20Premium" target="_blank" class="prod-wpp-btn">📲 Consultar precio</a>
+      </div>
+      <div class="prod-info">
+        <span class="prod-cat">Accesorios Auto</span>
+        <div class="prod-name">Fundas de Asiento Premium</div>
+        <div><span class="prod-price">Consultar</span></div>
+      </div>
+    </div>
+
+    <div class="prod-card fade-up visible" data-cat="auto">
+      <div class="prod-img">
+        🎮
+        <a href="https://wa.me/5493874158298?text=Hola!%20Quiero%20consultar%20por%20el%20Volante%20Deportivo" target="_blank" class="prod-wpp-btn">📲 Consultar precio</a>
+      </div>
+      <div class="prod-info">
+        <span class="prod-cat">Accesorios Auto</span>
+        <div class="prod-name">Volante Deportivo Cuero</div>
+        <div><span class="prod-price">Consultar</span></div>
+      </div>
+    </div>
+
+    <div class="prod-card fade-up visible" data-cat="moto">
+      <div class="prod-img">
+        ⭕
+        <span class="prod-badge">Stock</span>
+        <a href="https://wa.me/5493874158298?text=Hola!%20Quiero%20consultar%20por%20Cubiertas%20para%20Moto" target="_blank" class="prod-wpp-btn">📲 Consultar precio</a>
+      </div>
+      <div class="prod-info">
+        <span class="prod-cat">Motos</span>
+        <div class="prod-name">Cubiertas para Moto — Varios talles</div>
+        <div><span class="prod-price">Consultar</span></div>
+      </div>
+    </div>
+
+    <div class="prod-card fade-up visible" data-cat="electro">
+      <div class="prod-img">
+        🎧
+        <span class="prod-badge">Oferta</span>
+        <a href="https://wa.me/5493874158298?text=Hola!%20Quiero%20consultar%20por%20Auriculares%20Bluetooth" target="_blank" class="prod-wpp-btn">📲 Consultar precio</a>
+      </div>
+      <div class="prod-info">
+        <span class="prod-cat">Electrónica</span>
+        <div class="prod-name">Auriculares Bluetooth</div>
+        <div><span class="prod-price">Consultar</span></div>
+      </div>
+    </div>
+
+    <div class="prod-card fade-up visible" data-cat="auto">
+      <div class="prod-img">
+        🗺️
+        <a href="https://wa.me/5493874158298?text=Hola!%20Quiero%20consultar%20por%20el%20Soporte%20GPS%20para%20Auto" target="_blank" class="prod-wpp-btn">📲 Consultar precio</a>
+      </div>
+      <div class="prod-info">
+        <span class="prod-cat">Accesorios Auto</span>
+        <div class="prod-name">Soporte GPS para Auto</div>
+        <div><span class="prod-price">Consultar</span></div>
+      </div>
+    </div>
+
+    <div class="prod-card fade-up visible" data-cat="electro">
+      <div class="prod-img">
+        🔌
+        <a href="https://wa.me/5493874158298?text=Hola!%20Quiero%20consultar%20por%20el%20Cargador%20USB%20para%20Auto" target="_blank" class="prod-wpp-btn">📲 Consultar precio</a>
+      </div>
+      <div class="prod-info">
+        <span class="prod-cat">Electrónica</span>
+        <div class="prod-name">Cargador USB para Auto</div>
+        <div><span class="prod-price">Consultar</span></div>
+      </div>
+    </div>
+
+    <div class="prod-card fade-up visible" data-cat="moto">
+      <div class="prod-img">
+        ⛑️
+        <a href="https://wa.me/5493874158298?text=Hola!%20Quiero%20consultar%20por%20Cascos%20para%20Moto" target="_blank" class="prod-wpp-btn">📲 Consultar precio</a>
+      </div>
+      <div class="prod-info">
+        <span class="prod-cat">Motos</span>
+        <div class="prod-name">Cascos para Moto</div>
+        <div><span class="prod-price">Consultar</span></div>
+      </div>
+    </div>
+
+    <div class="prod-card fade-up visible" data-cat="auto">
+      <div class="prod-img">
+        🧹
+        <span class="prod-badge">Popular</span>
+        <a href="https://wa.me/5493874158298?text=Hola!%20Quiero%20consultar%20por%20Alfombras%20para%20Auto" target="_blank" class="prod-wpp-btn">📲 Consultar precio</a>
+      </div>
+      <div class="prod-info">
+        <span class="prod-cat">Accesorios Auto</span>
+        <div class="prod-name">Alfombras para Auto</div>
+        <div><span class="prod-price">Consultar</span></div>
+      </div>
+    </div>
+
+  </div>
+    </main>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">TOTAL <span>BLACK</span></div>
+  <p>© 2026 Total Black — Accesorios del Automotor, Salta</p>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

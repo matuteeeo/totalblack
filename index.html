@@ -3,692 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Total Black — Accesorios del Automotor</title>
+<title>Total Black</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-  --black: #0A0A0A;
-  --black2: #111111;
-  --black3: #1A1A1A;
-  --red: #CC0000;
-  --red-bright: #FF1A1A;
-  --white: #F0F0F0;
-  --gray: #888888;
-  --gray-light: #CCCCCC;
-  --border: rgba(255,255,255,0.07);
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Barlow', sans-serif;
-  background: var(--black);
-  color: var(--white);
-  overflow-x: hidden;
-  cursor: none;
-}
-
-/* CUSTOM CURSOR */
-.cursor {
-  width: 10px; height: 10px;
-  background: var(--red);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s, width 0.2s, height 0.2s;
-}
-.cursor-ring {
-  width: 32px; height: 32px;
-  border: 1px solid rgba(204,0,0,0.5);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: all 0.15s ease;
-}
-
-/* NAV */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 3rem;
-  background: rgba(10,10,10,0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-
-.nav-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.6rem;
-  letter-spacing: 0.08em;
-  color: var(--white);
-}
-.nav-logo span { color: var(--red); }
-
-.nav-links {
-  display: flex;
-  gap: 2.5rem;
-  list-style: none;
-}
-.nav-links a {
-  text-decoration: none;
-  color: var(--gray);
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--red); }
-
-.nav-wpp {
-  background: var(--red);
-  color: var(--white) !important;
-  padding: 0.5rem 1.3rem;
-  border-radius: 1px;
-  transition: background 0.2s !important;
-}
-.nav-wpp:hover { background: var(--red-bright) !important; color: var(--white) !important; }
-
-/* HERO */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 8rem 3rem 4rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(ellipse at 70% 50%, rgba(204,0,0,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 20% 80%, rgba(204,0,0,0.06) 0%, transparent 50%);
-}
-
-.hero-grid-lines {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-}
-
-.hero-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-.hero-eyebrow span {
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--red);
-  font-weight: 500;
-}
-.eyebrow-line {
-  width: 40px; height: 1px;
-  background: var(--red);
-}
-
-.hero h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(4rem, 10vw, 9rem);
-  line-height: 0.9;
-  letter-spacing: 0.03em;
-  color: var(--white);
-  margin-bottom: 1.5rem;
-}
-
-.hero h1 .outline {
-  -webkit-text-stroke: 1px rgba(240,240,240,0.3);
-  color: transparent;
-}
-
-.hero h1 .red { color: var(--red); }
-
-.hero-sub {
-  font-size: 1.1rem;
-  color: var(--gray);
-  font-weight: 300;
-  line-height: 1.7;
-  max-width: 500px;
-  margin-bottom: 2.5rem;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.btn-red {
-  background: var(--red);
-  color: var(--white);
-  padding: 0.9rem 2.2rem;
-  text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  border-radius: 1px;
-  transition: background 0.2s, transform 0.15s;
-  display: inline-block;
-}
-.btn-red:hover { background: var(--red-bright); transform: translateY(-2px); }
-
-.btn-outline {
-  border: 1px solid rgba(240,240,240,0.2);
-  color: var(--gray-light);
-  padding: 0.9rem 2.2rem;
-  text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  border-radius: 1px;
-  transition: border-color 0.2s, color 0.2s;
-  display: inline-block;
-}
-.btn-outline:hover { border-color: var(--red); color: var(--red); }
-
-.hero-stats {
-  display: flex;
-  gap: 3rem;
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border);
-}
-.stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.5rem;
-  color: var(--red);
-  display: block;
-  line-height: 1;
-}
-.stat-label {
-  font-size: 0.72rem;
-  color: var(--gray);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-top: 0.3rem;
-  display: block;
-}
-
-.hero-car {
-  position: absolute;
-  right: -5%;
-  bottom: 0;
-  width: 55%;
-  opacity: 0.06;
-  font-size: 22rem;
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-}
-
-/* MARQUEE */
-.marquee-strip {
-  background: var(--red);
-  padding: 0.7rem 0;
-  overflow: hidden;
-  white-space: nowrap;
-}
-.marquee-inner {
-  display: inline-block;
-  animation: marquee 20s linear infinite;
-}
-.marquee-inner span {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.95rem;
-  letter-spacing: 0.2em;
-  color: var(--white);
-  margin: 0 2rem;
-}
-.marquee-dot {
-  color: rgba(255,255,255,0.5) !important;
-  margin: 0 1rem !important;
-}
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-/* CATEGORIAS */
-.categorias {
-  padding: 6rem 3rem;
-  background: var(--black2);
-}
-
-.section-header {
-  margin-bottom: 3rem;
-}
-.section-tag {
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--red);
-  display: block;
-  margin-bottom: 0.5rem;
-}
-.section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 3rem;
-  letter-spacing: 0.05em;
-  color: var(--white);
-}
-
-.cat-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--border);
-}
-.cat-card {
-  background: var(--black2);
-  padding: 2rem 1.5rem;
-  text-decoration: none;
-  transition: background 0.3s;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-.cat-card::before {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 0; height: 2px;
-  background: var(--red);
-  transition: width 0.3s;
-}
-.cat-card:hover { background: var(--black3); }
-.cat-card:hover::before { width: 100%; }
-
-.cat-icon { font-size: 2rem; }
-.cat-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.4rem;
-  letter-spacing: 0.05em;
-  color: var(--white);
-}
-.cat-count {
-  font-size: 0.75rem;
-  color: var(--gray);
-  letter-spacing: 0.08em;
-}
-.cat-arrow {
-  margin-top: auto;
-  color: var(--red);
-  font-size: 1.2rem;
-  transition: transform 0.2s;
-}
-.cat-card:hover .cat-arrow { transform: translateX(5px); }
-
-/* PRODUCTOS */
-.productos {
-  padding: 6rem 3rem;
-  background: var(--black);
-}
-
-.productos-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 3rem;
-}
-
-.filter-tabs {
-  display: flex;
-  gap: 0.5rem;
-}
-.filter-tab {
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--gray);
-  padding: 0.4rem 1rem;
-  font-family: 'Barlow', sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 1px;
-  transition: all 0.2s;
-}
-.filter-tab.active, .filter-tab:hover {
-  background: var(--red);
-  border-color: var(--red);
-  color: var(--white);
-}
-
-.prod-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--border);
-}
-
-.prod-card {
-  background: var(--black);
-  position: relative;
-  overflow: hidden;
-  transition: background 0.3s;
-}
-.prod-card:hover { background: var(--black3); }
-
-.prod-img {
-  width: 100%;
-  aspect-ratio: 1;
-  background: var(--black3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3.5rem;
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid var(--border);
-}
-
-.prod-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: none;
-}
-
-.prod-badge {
-  position: absolute;
-  top: 0.8rem; left: 0.8rem;
-  background: var(--red);
-  color: var(--white);
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.2rem 0.6rem;
-  border-radius: 1px;
-}
-
-.prod-wpp-btn {
-  position: absolute;
-  bottom: -50px;
-  left: 0; right: 0;
-  background: rgba(204,0,0,0.95);
-  color: var(--white);
-  text-align: center;
-  padding: 0.7rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: bottom 0.3s;
-  display: block;
-}
-.prod-card:hover .prod-wpp-btn { bottom: 0; }
-
-.prod-info {
-  padding: 1rem 1.2rem;
-}
-.prod-cat {
-  font-size: 0.68rem;
-  color: var(--red);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 0.3rem;
-  display: block;
-}
-.prod-name {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--white);
-  line-height: 1.3;
-  margin-bottom: 0.5rem;
-}
-.prod-price {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.4rem;
-  color: var(--white);
-  letter-spacing: 0.05em;
-}
-.prod-price-sub {
-  font-size: 0.72rem;
-  color: var(--gray);
-  margin-left: 0.3rem;
-  font-family: 'Barlow', sans-serif;
-}
-
-/* ENVIOS */
-.envios {
-  background: var(--red);
-  padding: 4rem 3rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-.envio-item {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-}
-.envio-icon {
-  font-size: 2rem;
-  flex-shrink: 0;
-}
-.envio-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.2rem;
-  letter-spacing: 0.05em;
-  color: var(--white);
-  display: block;
-}
-.envio-desc {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.75);
-  font-weight: 300;
-  display: block;
-  margin-top: 0.1rem;
-}
-
-/* CONTACTO */
-.contacto {
-  padding: 6rem 3rem;
-  background: var(--black2);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  align-items: center;
-}
-
-.contacto-left h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 3.5rem;
-  letter-spacing: 0.05em;
-  line-height: 0.95;
-  margin-bottom: 1.5rem;
-}
-.contacto-left h2 span { color: var(--red); }
-
-.contacto-left p {
-  color: var(--gray);
-  font-size: 0.95rem;
-  font-weight: 300;
-  line-height: 1.8;
-  margin-bottom: 2rem;
-}
-
-.info-items { display: flex; flex-direction: column; gap: 1.2rem; }
-.info-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-.info-icon {
-  width: 38px; height: 38px;
-  border: 1px solid rgba(204,0,0,0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  flex-shrink: 0;
-  border-radius: 1px;
-}
-.info-text strong {
-  display: block;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gray);
-  margin-bottom: 0.2rem;
-  font-weight: 500;
-}
-.info-text span {
-  font-size: 0.95rem;
-  color: var(--white);
-  font-weight: 300;
-}
-
-.contacto-right {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.wpp-card {
-  background: var(--black3);
-  border: 1px solid var(--border);
-  border-radius: 2px;
-  padding: 2rem;
-  text-align: center;
-}
-.wpp-card p {
-  color: var(--gray);
-  font-size: 0.88rem;
-  font-weight: 300;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-.btn-wpp {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.7rem;
-  background: #25D366;
-  color: var(--white);
-  text-decoration: none;
-  padding: 1rem 2rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border-radius: 1px;
-  transition: opacity 0.2s, transform 0.15s;
-}
-.btn-wpp:hover { opacity: 0.9; transform: translateY(-2px); }
-
-.social-row {
-  display: flex;
-  gap: 1rem;
-}
-.social-btn {
-  flex: 1;
-  background: var(--black3);
-  border: 1px solid var(--border);
-  color: var(--gray);
-  text-decoration: none;
-  padding: 0.9rem;
-  text-align: center;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border-radius: 1px;
-  transition: border-color 0.2s, color 0.2s;
-}
-.social-btn:hover { border-color: var(--red); color: var(--red); }
-
-/* FOOTER */
-footer {
-  background: #050505;
-  padding: 2.5rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid var(--border);
-}
-.footer-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.4rem;
-  letter-spacing: 0.08em;
-  color: var(--white);
-}
-.footer-logo span { color: var(--red); }
-footer p { font-size: 0.75rem; color: var(--gray); }
-
-/* ANIMATIONS */
-.fade-up {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.fade-up.visible { opacity: 1; transform: translateY(0); }
-
-@media (max-width: 900px) {
-  body { cursor: auto; }
-  .cursor, .cursor-ring { display: none; }
-  nav { padding: 1rem 1.5rem; }
-  .nav-links { display: none; }
-  .hero { padding: 6rem 1.5rem 3rem; }
-  .hero h1 { font-size: clamp(3.5rem, 15vw, 6rem); }
-  .hero-car { display: none; }
-  .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
-  .cat-grid { grid-template-columns: repeat(2, 1fr); }
-  .prod-grid { grid-template-columns: repeat(2, 1fr); }
-  .envios { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
-  .categorias, .productos { padding: 4rem 1.5rem; }
-  .contacto { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
-  footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
-  .productos-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-}
-</style>
+<link rel="icon" type="image/png" href="./images/black-favicon.png">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
 <nav>
-  <div class="nav-logo">TOTAL <span>BLACK</span></div>
-  <ul class="nav-links">
-    <li><a href="#categorias">Categorías</a></li>
-    <li><a href="#productos">Productos</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-    <li><a href="https://wa.me/5493874158298" target="_blank" class="nav-wpp">WhatsApp</a></li>
-  </ul>
+  <a href="/" class="nav-logo" style="text-decoration:none;">TOTAL <span>BLACK</span></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#categorias">Categorías</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="/shop/" class="nav-wpp">Tienda</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -725,7 +56,9 @@ footer p { font-size: 0.75rem; color: var(--gray); }
       </div>
     </div>
   </div>
-  <div class="hero-car">🚗</div>
+  <div class="hero-car">
+    <img src="./images/background.png" alt="" draggable="false">
+  </div>
 </section>
 
 <!-- MARQUEE -->
@@ -751,25 +84,25 @@ footer p { font-size: 0.75rem; color: var(--gray); }
     <h2 class="section-title">Categorías</h2>
   </div>
   <div class="cat-grid">
-    <a href="#productos" class="cat-card fade-up">
+    <a href="#productos" onclick="filterProducts('auto')" class="cat-card fade-up">
       <div class="cat-icon">🚗</div>
       <div class="cat-name">Accesorios Auto</div>
       <div class="cat-count">Fundas, volantes, alfombras y más</div>
       <div class="cat-arrow">→</div>
     </a>
-    <a href="#productos" class="cat-card fade-up">
+    <a href="#productos" onclick="filterProducts('moto')" class="cat-card fade-up">
       <div class="cat-icon">🏍️</div>
       <div class="cat-name">Motos & Cubiertas</div>
       <div class="cat-count">Cubiertas, cascos y accesorios</div>
       <div class="cat-arrow">→</div>
     </a>
-    <a href="#productos" class="cat-card fade-up">
+    <a href="#productos" onclick="filterProducts('electro')" class="cat-card fade-up">
       <div class="cat-icon">🔊</div>
       <div class="cat-name">Audio & Electrónica</div>
       <div class="cat-count">Auriculares, parlantes, cargadores</div>
       <div class="cat-arrow">→</div>
     </a>
-    <a href="#productos" class="cat-card fade-up">
+    <a href="#productos" onclick="filterProducts('todos')" class="cat-card fade-up">
       <div class="cat-icon">🔧</div>
       <div class="cat-name">Mantenimiento</div>
       <div class="cat-count">Herramientas y accesorios varios</div>
@@ -786,10 +119,10 @@ footer p { font-size: 0.75rem; color: var(--gray); }
       <h2 class="section-title">Productos destacados</h2>
     </div>
     <div class="filter-tabs">
-      <button class="filter-tab active" onclick="filterProducts('todos', this)">Todos</button>
-      <button class="filter-tab" onclick="filterProducts('auto', this)">Autos</button>
-      <button class="filter-tab" onclick="filterProducts('moto', this)">Motos</button>
-      <button class="filter-tab" onclick="filterProducts('electro', this)">Electrónica</button>
+      <button class="filter-tab active" data-filter="todos" onclick="filterProducts('todos')">Todos</button>
+      <button class="filter-tab" data-filter="auto" onclick="filterProducts('auto')">Autos</button>
+      <button class="filter-tab" data-filter="moto" onclick="filterProducts('moto')">Motos</button>
+      <button class="filter-tab" data-filter="electro" onclick="filterProducts('electro')">Electrónica</button>
     </div>
   </div>
 
@@ -895,6 +228,12 @@ footer p { font-size: 0.75rem; color: var(--gray); }
       </div>
     </div>
 
+    <!-- TARJETA VER TODOS LOS PRODUCTOS -->
+    <a href="/shop/" class="prod-card view-all fade-up">
+      <div class="icon">➕</div>
+      <span>Ver todos<br>los productos</span>
+    </a>
+
   </div>
 </section>
 
@@ -925,44 +264,50 @@ footer p { font-size: 0.75rem; color: var(--gray); }
 
 <!-- CONTACTO -->
 <section class="contacto" id="contacto">
-  <div class="contacto-left fade-up">
+  <div class="fade-up" style="width: 100%;">
     <h2>CONTACTATE<br><span>CON NOSOTROS</span></h2>
     <p>¿No encontrás lo que buscás? Escribinos por WhatsApp y te ayudamos a encontrar el accesorio que necesitás para tu vehículo.</p>
+    
     <div class="info-items">
-      <div class="info-item">
+      <a href="https://www.google.com/maps?q=-24.7282254,-65.4008697" target="_blank" class="info-item">
         <div class="info-icon">📍</div>
         <div class="info-text">
-          <strong>Dirección</strong>
-          <span>Barrio Castañares Mza 30 Casa 10, Grupo 648, Salta</span>
+          <strong>Dirección <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; vertical-align:-1px; opacity:0.8;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></strong>
+          <span>Barrio Castañares, Mza 30 Casa 10, Grupo 648, Salta Capital</span>
         </div>
-      </div>
-      <div class="info-item">
-        <div class="info-icon">📞</div>
+      </a>
+      
+      <a href="https://wa.me/5493874158298?text=Hola%20Total%20Black!%20Quiero%20consultar%20por%20un%20producto." target="_blank" class="info-item">
+        <div class="info-icon">💬</div>
         <div class="info-text">
-          <strong>WhatsApp</strong>
+          <strong>WhatsApp <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; vertical-align:-1px; opacity:0.8;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></strong>
           <span>+54 9 387 415-8298</span>
         </div>
-      </div>
-      <div class="info-item">
+      </a>
+      
+      <a href="https://instagram.com/tbk_totalblack.0" target="_blank" class="info-item">
         <div class="info-icon">📸</div>
         <div class="info-text">
-          <strong>Instagram</strong>
+          <strong>Instagram <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; vertical-align:-1px; opacity:0.8;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></strong>
           <span>@tbk_totalblack.0</span>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="contacto-right fade-up">
-    <div class="wpp-card">
-      <p>La forma más rápida de consultar precios, disponibilidad y hacer tu pedido es directamente por WhatsApp.</p>
-      <a href="https://wa.me/5493874158298?text=Hola%20Total%20Black!%20Quiero%20consultar%20por%20un%20producto." target="_blank" class="btn-wpp">
-        <span>💬</span> Escribir por WhatsApp
       </a>
-    </div>
-    <div class="social-row">
-      <a href="https://instagram.com/tbk_totalblack.0" target="_blank" class="social-btn">📸 Instagram</a>
-      <a href="https://www.facebook.com/people/Total-Black/61554006215921/?ref=NONE_xav_ig_profile_page_web#" target="_blank" class="social-btn">👤 Facebook</a>
+      
+      <a href="https://www.facebook.com/people/Total-Black/61554006215921/?ref=NONE_xav_ig_profile_page_web#" target="_blank" class="info-item">
+        <div class="info-icon">👤</div>
+        <div class="info-text">
+          <strong>Facebook <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; vertical-align:-1px; opacity:0.8;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></strong>
+          <span>Total Black</span>
+        </div>
+      </a>
+
+      <a href="mailto:contacto@totalblack.com" class="info-item">
+        <div class="info-icon">✉️</div>
+        <div class="info-text">
+          <strong>Email <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; vertical-align:-1px; opacity:0.8;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></strong>
+          <span>contacto@totalblack.com</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -970,45 +315,9 @@ footer p { font-size: 0.75rem; color: var(--gray); }
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">TOTAL <span>BLACK</span></div>
-  <p>© 2024 Total Black — Accesorios del Automotor, Salta</p>
-  <p style="font-size:0.72rem; color: #555;">Diseño web por <strong style="color:#888">Mateo Zarate</strong></p>
+  <p>© 2026 Total Black — Accesorios del Automotor, Salta</p>
 </footer>
 
-<script>
-  // Custom cursor
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    setTimeout(() => {
-      ring.style.left = e.clientX + 'px';
-      ring.style.top = e.clientY + 'px';
-    }, 80);
-  });
-
-  // Scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // Filter products
-  function filterProducts(cat, btn) {
-    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.prod-card').forEach(card => {
-      if (cat === 'todos' || card.dataset.cat === cat) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-</script>
+<script src="script.js"></script>
 </body>
 </html>
