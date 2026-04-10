@@ -11,7 +11,7 @@ html {
 body {
   margin: 0; 
   font-family: 'Barlow', sans-serif;
-  background: var(--black);
+  background: var(--black); 
   color: var(--white);
   overflow-x: hidden; 
 }
@@ -764,6 +764,8 @@ footer p { font-size: 0.75rem; color: var(--gray); }
 @media (max-width: 900px) {
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
+  
+  /* Ajuste de Hero para móviles */
   .hero { padding: 5rem 1.5rem 3rem; }
   .hero h1 { font-size: clamp(3rem, 13vw, 5rem); }
   .hero-car { display: none; }
@@ -771,23 +773,45 @@ footer p { font-size: 0.75rem; color: var(--gray); }
   .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
   .hero-sub { font-size: 1rem; }
   .hero-actions { flex-direction: column; align-items: flex-start; }
-  .cat-grid { grid-template-columns: repeat(2, 1fr); }
-  .prod-grid { grid-template-columns: repeat(2, 1fr); }
-  .envios { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
-  .categorias, .productos { padding: 4rem 1.5rem; }
-  .contacto { padding: 4rem 1.5rem; }
-  .info-items { grid-template-columns: 1fr; }
-  footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
-  .productos-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-  
+
+  /* --- AJUSTES TIENDA (SHOP) --- */
   .shop-layout {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    display: flex;         /* Cambiamos grid por flex para evitar desbordamientos */
+    flex-direction: column;
+    gap: 2rem;
   }
+
   .shop-sidebar {
-    position: static;
+    position: static;      /* Quitamos el sticky en móvil */
+    width: 100%;           /* Ocupa todo el ancho */
     padding: 1.5rem;
+    box-sizing: border-box; 
   }
+
   .desktop-filters { display: none; }
   .mobile-filters { display: block; }
+
+  .prod-grid { 
+    /* El minmax(160px) permite que entren 2 productos en casi cualquier celular */
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+    gap: 1rem; 
+  }
+
+  /* --- ESPACIADOS GENERALES --- */
+  .categorias, .productos { 
+    padding: 2rem 1rem;    /* Reducimos el padding excesivo en móviles */
+    padding-top: 6rem;     /* Ajuste para que el navbar no tape el título */
+  }
+
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .envios { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+  .contacto { padding: 4rem 1.5rem; }
+  .info-items { grid-template-columns: 1fr; }
+  
+  footer { 
+    flex-direction: column; 
+    gap: 1rem; 
+    text-align: center; 
+    padding: 2rem 1.5rem; 
+  }
 }
