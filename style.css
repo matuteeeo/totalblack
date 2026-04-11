@@ -668,6 +668,7 @@ footer p { font-size: 0.75rem; color: var(--gray); }
   grid-template-columns: 250px 1fr;
   gap: 3rem;
   align-items: start;
+  background-color: var(--black);
 }
 
 .shop-sidebar {
@@ -760,31 +761,42 @@ footer p { font-size: 0.75rem; color: var(--gray); }
   outline: none;
 }
 
+.prod-card {
+  background-color: var(--black2) !important; /* El gris de la tarjeta */
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.prod-grid {
+  background-color: #000000; /* Negro total para los espacios */
+}
 
 @media (max-width: 900px) {
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
   
-  /* Ajuste de Hero para móviles */
+  /* Reset de Hero */
   .hero { padding: 5rem 1.5rem 3rem; }
   .hero h1 { font-size: clamp(3rem, 13vw, 5rem); }
   .hero-car { display: none; }
-  .hero-eyebrow { flex-wrap: wrap; margin-bottom: 2rem; }
-  .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
-  .hero-sub { font-size: 1rem; }
   .hero-actions { flex-direction: column; align-items: flex-start; }
 
-  /* --- AJUSTES TIENDA (SHOP) --- */
+  /* --- AJUSTES TIENDA (SHOP) REQUERIDOS --- */
   .shop-layout {
-    display: flex;         /* Cambiamos grid por flex para evitar desbordamientos */
-    flex-direction: column;
-    gap: 2rem;
+    display: block;      /* Cambiamos a block para asegurar que ocupe todo el ancho */
+    width: 100%;
+    padding: 0;
   }
 
   .shop-sidebar {
-    position: static;      /* Quitamos el sticky en móvil */
-    width: 100%;           /* Ocupa todo el ancho */
-    padding: 1.5rem;
+    position: static;
+    width: 100% !important;
+    max-width: 100%;
+    margin-bottom: 3rem; /* Espacio entre filtros y productos */
     box-sizing: border-box; 
   }
 
@@ -792,26 +804,24 @@ footer p { font-size: 0.75rem; color: var(--gray); }
   .mobile-filters { display: block; }
 
   .prod-grid { 
-    /* El minmax(160px) permite que entren 2 productos en casi cualquier celular */
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
-    gap: 1rem; 
+    display: grid !important;
+    /* Forzamos 2 columnas exactas para que no sobre espacio a la derecha */
+    grid-template-columns: 1fr 1fr !important; 
+    gap: 3rem;           /* Mantenemos mi espacio original */
+    width: 100%;
+    padding: 0;
   }
 
-  /* --- ESPACIADOS GENERALES --- */
-  .categorias, .productos { 
-    padding: 2rem 1rem;    /* Reducimos el padding excesivo en móviles */
-    padding-top: 6rem;     /* Ajuste para que el navbar no tape el título */
+  /* contenedor seccion */
+  .productos { 
+    padding: 8rem 1.5rem 4rem 1.5rem !important; /* Ajuste de espacio superior */
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Evita  scroll lateral  */
+    background-color: var(--black);
   }
 
-  .cat-grid { grid-template-columns: repeat(2, 1fr); }
-  .envios { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
-  .contacto { padding: 4rem 1.5rem; }
-  .info-items { grid-template-columns: 1fr; }
-  
-  footer { 
-    flex-direction: column; 
-    gap: 1rem; 
-    text-align: center; 
-    padding: 2rem 1.5rem; 
-  }
+  /* Otros ajustes */
+  .cat-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .envios, .info-items, footer { flex-direction: column; text-align: center; }
 }
